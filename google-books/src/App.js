@@ -1,10 +1,13 @@
 // App.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import './App.css';
-// App.js
+import Books from "./pages/Books";
+import Nav from "./components/Nav";
 
-//const [books, setBooks] = useState({ items: [] });
+import './App.css';
+import Search from './components/Search';
+
+
 
 const App = () => {
   // App.js
@@ -20,12 +23,12 @@ const [books, setBooks] = useState({ items: [] });
   }
 
   // Submit handler
-  const onSubmitHandler = (e) => {
-      // Prevent browser refreshing after form submission
-      e.preventDefault();
-      // Call fetch books async function
-      fetchBooks();
-  }
+  // const onSubmitHandler = (e) => {
+  //     // Prevent browser refreshing after form submission
+  //     e.preventDefault();
+  //     // Call fetch books async function
+  //     fetchBooks();
+  // }
 
   const [searchTerm, setSearchTerm] = useState('');
   const onInputChange = (e) => {
@@ -46,13 +49,15 @@ const [books, setBooks] = useState({ items: [] });
 
   // Param, Vennila and Afrin
   let authors = ['Param', 'Vennila', 'Afrin'];
+
   bookAuthors(authors);
 
-
- 
-
- 
-
+  const onSubmitHandler = (e) => {
+    // Prevent browser refreshing after form submission
+    e.preventDefault();
+    // Call fetch books async function
+    fetchBooks();
+}
   return (
     <section>
        <form onSubmit={onSubmitHandler}>
@@ -76,11 +81,11 @@ const [books, setBooks] = useState({ items: [] });
         }
       </ul>
         <label>
-          <span>Search for books</span>
-        
+          <span>Google_API Books Search</span>
+  
           <input
             type="search"
-            placeholder="microservice, restful design, etc.,"
+            placeholder="Search For Books,"
             value={searchTerm}
             onChange={onInputChange}
           />
@@ -88,6 +93,9 @@ const [books, setBooks] = useState({ items: [] });
           <button type="submit">Search</button>
         </label>
       </form>
+      
+      
+      
     </section>
   );
 };
