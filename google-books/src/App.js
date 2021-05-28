@@ -1,11 +1,11 @@
 // App.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import Books from "./pages/Books";
-import Nav from "./components/Nav";
+//import Books from "./pages/Books";
+//import Nav from "./components/Nav";
 
 import './App.css';
-import Search from './components/Search';
+//import Search from './components/Search';
 
 
 
@@ -20,6 +20,7 @@ const [books, setBooks] = useState({ items: [] });
       const result = await axios.get(`${API_URL}?q=${searchTerm}`);
       // Books result
       console.log(result.data);
+      console.log(result.data.items[0].volumeInfo.title);
   }
 
   // Submit handler
@@ -48,9 +49,9 @@ const [books, setBooks] = useState({ items: [] });
   };
 
   // Param, Vennila and Afrin
-  let authors = ['Param', 'Vennila', 'Afrin'];
+  // let authors = ['Param', 'Vennila', 'Afrin'];
 
-  bookAuthors(authors);
+  // bookAuthors(authors);
 
   const onSubmitHandler = (e) => {
     // Prevent browser refreshing after form submission
@@ -93,7 +94,7 @@ const [books, setBooks] = useState({ items: [] });
           <button type="submit">Search</button>
         </label>
       </form>
-      
+      <div id="results"></div>
       
       
     </section>
