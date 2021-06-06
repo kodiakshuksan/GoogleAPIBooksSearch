@@ -1,6 +1,7 @@
 // App.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import Results from "./pages/results";
 //import Books from "./pages/Books";
 //import Nav from "./components/Nav";
 
@@ -21,6 +22,7 @@ const [books, setBooks] = useState({ items: [] });
       // Books result
       console.log(result.data);
       console.log(result.data.items[0].volumeInfo.title);
+      document.getElementById("title").innerHTML = result.data.items[0].volumeInfo.title;
   }
 
   // Submit handler
@@ -61,6 +63,7 @@ const [books, setBooks] = useState({ items: [] });
 }
   return (
     <section>
+      <Results />
        <form onSubmit={onSubmitHandler}>
       <ul>
         {
